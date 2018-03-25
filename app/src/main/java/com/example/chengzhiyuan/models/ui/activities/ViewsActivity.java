@@ -2,7 +2,6 @@ package com.example.chengzhiyuan.models.ui.activities;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,58 +10,56 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.chengzhiyuan.models.R;
+import com.example.chengzhiyuan.models.ui.base.ToolbarActivity;
+import com.example.chengzhiyuan.models.ui.widgets.PIView;
 
 import java.util.Random;
 
-public class ViewsActivity extends AppCompatActivity implements View.OnClickListener {
+import butterknife.BindView;
+import butterknife.OnClick;
+
+public class ViewsActivity extends ToolbarActivity implements View.OnClickListener {
 
     private static final String TAG = "PIView";
-    private View mPI;
-    private Button mBtn;
-    private ImageView mImageview;
-    private Random mRandom;
+    @BindView(R.id.pi)
+    PIView mPI;
+    @BindView(R.id.btn)
+    Button mBtn;
+    @BindView(R.id.pi_cen)
+    ImageView mImageview;
+    @BindView(R.id.tv_select)
+    TextView mTextview;
+    Random mRandom;
     private float startCornor = 0f;
     private float endCornor;
-    private TextView mTextview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_views);
-
         init();
     }
 
-    private void init() {
-        mPI = findViewById(R.id.pi);
-        mBtn = (Button) findViewById(R.id.btn);
-        mImageview = (ImageView) findViewById(R.id.pi_cen);
-        mTextview = (TextView) findViewById(R.id.tv_select);
-        mBtn.setOnClickListener(this);
+    @Override
+    protected int provideContentViewId() {
+        return R.layout.activity_views;
+    }
 
+    private void init() {
         mRandom = new Random();
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        Log.e(TAG, "onPause: ");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.e(TAG, "onResume: ");
-    }
-
-    @Override
+    @OnClick(R.id.btn)
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn:
                 startAnim();
                 break;
         }
+    }
+
+    @Override
+    public boolean canBack() {
+        return true;
     }
 
     private void startAnim() {

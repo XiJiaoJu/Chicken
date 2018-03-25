@@ -1,43 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:myscroll="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.chengzhiyuan.models.ui.activities.ViewsActivity">
 
-    <com.example.chengzhiyuan.models.ui.widgets.PIView
-        android:id="@+id/pi"
+    <include layout="@layout/view_toolbar" />
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/pi_cen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:src="@mipmap/ic_launcher_round" />
+        <com.example.chengzhiyuan.models.ui.widgets.PIView
+            android:id="@+id/pi"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="start" />
+        <ImageView
+            android:id="@+id/pi_cen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/ic_launcher_round" />
 
-    <TextView
-        android:id="@+id/tv_select"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_below="@+id/btn"
-        android:layout_margin="5dp" />
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="start" />
 
-    <com.example.chengzhiyuan.models.ui.widgets.MySelectView
-        android:id="@+id/my_selectview"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="50dp"
-        android:visibility="gone"
-        myscroll:lineColor="@color/colorPrimary"
-        myscroll:textColor="@color/colorAccent"
-        myscroll:textSize="20dp" />
-</RelativeLayout>
+        <TextView
+            android:id="@+id/tv_select"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_below="@+id/btn"
+            android:layout_margin="5dp" />
+
+        <com.example.chengzhiyuan.models.ui.widgets.MySelectView
+            android:id="@+id/my_selectview"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:visibility="gone"
+            myscroll:lineColor="@color/colorPrimary"
+            myscroll:textColor="@color/colorAccent"
+            myscroll:textSize="20dp" />
+    </RelativeLayout>
+</LinearLayout>

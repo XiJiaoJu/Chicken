@@ -86,6 +86,11 @@ public class PIView extends View {
         centerY = h / 2;
     }
 
+    /**
+     * get font height
+     * @param fontSize font size
+     * @return returen height with int
+     */
     public int getFontHeight(float fontSize) {
         Paint paint = new Paint();
         paint.setTextSize(fontSize);
